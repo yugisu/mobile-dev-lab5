@@ -14,6 +14,7 @@ import { MovieProvider } from "providers/MovieProvider";
 import { MovieListScreen } from "screens/MovieListScreen";
 import { MovieDetailsScreen } from "screens/MovieDetailsScreen";
 import { AddMovieScreen } from "screens/AddMovieScreen";
+import { ImagesScreen } from "screens/ImagesScreen";
 
 const Tab = createBottomTabNavigator();
 const Movie = createStackNavigator();
@@ -30,6 +31,10 @@ export const App = () => {
 
                 if (route.name === Routes.MOVIES) {
                   iconName = "md-film";
+                }
+
+                if (route.name === Routes.IMAGES) {
+                  iconName = "md-images";
                 }
 
                 return <Ionicons name={iconName} size={size} color={color} />;
@@ -49,6 +54,7 @@ export const App = () => {
                 </Movie.Navigator>
               )}
             </Tab.Screen>
+            <Tab.Screen name={Routes.IMAGES} component={ImagesScreen} />
           </Tab.Navigator>
         </MovieProvider>
       </NavigationContainer>
